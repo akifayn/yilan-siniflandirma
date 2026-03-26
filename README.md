@@ -2,6 +2,8 @@
 
 Binary görüntü sınıflandırma projesi — zehirli ve zehirsiz yılanları Transfer Learning ile ayırt eder.
 
+[![Notebook'u Görüntüle](https://img.shields.io/badge/Notebook-nbviewer-orange)](https://nbviewer.org/github/akifayn/yilan-siniflandirma/blob/main/Zehirli_Yilan_Siniflandirma.ipynb)
+
 ## Hazırlayanlar
 
 | Numara | İsim |
