@@ -1,0 +1,28 @@
+# Virtual environment
+venv/
+.env/
+env/
+
+# Model dosyaları (büyük boyut)
+*.keras
+*.h5
+*.pb
+
+# Veri seti (büyük boyut - ayrıca indirin)
+Snake Images/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter checkpoint
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
