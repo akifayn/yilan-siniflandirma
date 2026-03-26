@@ -3,6 +3,7 @@
 A binary image classification project that distinguishes venomous and non-venomous snakes using Transfer Learning.
 
 [![View Notebook](https://img.shields.io/badge/Notebook-nbviewer-orange)](https://nbviewer.org/github/akifayn/yilan-siniflandirma/blob/main/Zehirli_Yilan_Siniflandirma.ipynb)
+[![Download Report](https://img.shields.io/badge/Report-PDF-red)](https://github.com/akifayn/yilan-siniflandirma/raw/main/Zehirli_Yilan_Siniflandirma_GUNCEL.pdf)
 
 ## Contributors
 
