@@ -1,85 +1,88 @@
-# Zehirli Yılan Sınıflandırma (Venomous Snake Classification)
+# Venomous Snake Classification
 
-Binary görüntü sınıflandırma projesi — zehirli ve zehirsiz yılanları Transfer Learning ile ayırt eder.
+A binary image classification project that distinguishes venomous and non-venomous snakes using Transfer Learning.
 
-[![Notebook'u Görüntüle](https://img.shields.io/badge/Notebook-nbviewer-orange)](https://nbviewer.org/github/akifayn/yilan-siniflandirma/blob/main/Zehirli_Yilan_Siniflandirma.ipynb)
+[![View Notebook](https://img.shields.io/badge/Notebook-nbviewer-orange)](https://nbviewer.org/github/akifayn/yilan-siniflandirma/blob/main/Zehirli_Yilan_Siniflandirma.ipynb)
 
-## Hazırlayanlar
+## Contributors
 
-| Numara | İsim |
-|--------|------|
+| Student ID | Name |
+|------------|------|
 | 214210040 | Muhammet Akif Ayan |
-| 214210093 | Oğuzhan Yalçın |
-| 214210095 | Erkan Yiğit |
+| 214210093 | Oguzhan Yalcin |
+| 214210095 | Erkan Yigit |
 
-## Proje Özeti
+## Project Overview
 
-Bu proje, üç farklı Transfer Learning modelini karşılaştırarak zehirli/zehirsiz yılan sınıflandırması yapmayı amaçlar.
+This project compares three Transfer Learning architectures for binary snake classification (Venomous vs Non-Venomous) using TensorFlow/Keras.
 
-### Kullanılan Modeller
+### Model Results
 
 | Model | Epochs | Optimizer | Test Accuracy |
 |-------|--------|-----------|---------------|
-| ResNet50 | 44/50 | Adam | %56 |
-| VGG16 | 16/50 | Adam | %79 |
-| **MobileNetV2** | **50/50** | **Adam** | **%87** |
+| ResNet50 | 44/50 | Adam | 56% |
+| VGG16 | 16/50 | Adam | 79% |
+| **MobileNetV2** | **50/50** | **Adam** | **87%** |
 
-**En iyi model: MobileNetV2 — %87 test doğruluğu**
+**Best model: MobileNetV2 — 87% test accuracy**
 
-## Veri Seti
+## Dataset
 
-- **Toplam eğitim:** 1775 görüntü (Non-Venomous: 715, Venomous: 1060)
-- **Toplam test:** 269 görüntü (Non-Venomous: 128, Venomous: 141)
-- **Görüntü boyutu:** 224x224x3
+- **Training set:** 1,775 images (Non-Venomous: 715 / Venomous: 1,060)
+- **Test set:** 269 images (Non-Venomous: 128 / Venomous: 141)
+- **Image size:** 224x224x3
 
-> Veri seti boyutu nedeniyle GitHub'a yüklenmemiştir. `Snake Images/` klasörünü ayrıca temin edin.
+> The dataset is not included in this repository due to its size. Place the `Snake Images/` folder manually in the project directory.
 
-## Kurulum
+## Installation
 
 ```bash
-# Repo'yu klonla
-git clone <repo-url>
-cd "Yılan Sınıflandırma"
+# Clone the repository
+git clone https://github.com/akifayn/yilan-siniflandirma.git
+cd yilan-siniflandirma
 
-# Sanal ortam oluştur
+# Create virtual environment
 python -m venv venv
-venv\Scripts\activate      # Windows
-# source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # Linux/Mac
 
-# Kütüphaneleri yükle
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-## Kullanım
+## Usage
 
-1. `Snake Images/` klasörünü proje dizinine koy (`train/` ve `test/` alt klasörleriyle)
-2. Jupyter Notebook'u aç:
+1. Place the `Snake Images/` folder in the project directory with the following structure:
+```
+Snake Images/
+├── train/
+│   ├── Non Venomous/
+│   └── Venomous/
+└── test/
+    ├── Non Venomous/
+    └── Venomous/
+```
+2. Open the notebook:
 ```bash
 jupyter notebook Zehirli_Yilan_Siniflandirma.ipynb
 ```
-3. Hücreleri sırayla çalıştır
+3. Run cells in order
 
-## Klasör Yapısı
+## Project Structure
 
 ```
-Yılan Sınıflandırma/
-├── Zehirli_Yilan_Siniflandirma.ipynb   # Ana notebook
-├── Zehirli_Yilan_Siniflandirma_GUNCEL.pdf  # Son eğitim raporu
+yilan-siniflandirma/
+├── Zehirli_Yilan_Siniflandirma.ipynb     # Main notebook
+├── Zehirli_Yilan_Siniflandirma_GUNCEL.pdf  # Final training report
 ├── requirements.txt
-├── README.md
-└── Snake Images/                        # Veri seti (yüklenmedi)
-    ├── train/
-    │   ├── Non Venomous/
-    │   └── Venomous/
-    └── test/
-        ├── Non Venomous/
-        └── Venomous/
+└── README.md
 ```
 
-## Teknik Detaylar
+## Technical Details
 
 - **Framework:** TensorFlow / Keras
-- **Görev:** Binary sınıflandırma (sigmoid çıkış)
-- **Veri artırma:** Rotation, flip, zoom, shift
-- **Callback:** EarlyStopping + ReduceLROnPlateau
-- **Sınıf dengeleme:** compute_class_weight (balanced)
+- **Task:** Binary classification (sigmoid output)
+- **Data Augmentation:** Rotation, horizontal flip, zoom, width/height shift
+- **Callbacks:** EarlyStopping + ReduceLROnPlateau
+- **Class Balancing:** compute_class_weight (balanced)
+- **Base Models:** ImageNet pretrained weights (frozen layers)
